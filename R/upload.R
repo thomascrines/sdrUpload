@@ -1,17 +1,21 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+#' Upload Excel worksheets to SDR
+#'
+#' \code{upload} is an internal function that uploads all Excel worksheets in a specified location to the SDR.
+#' The destination table is determined by the sheet name; if a table with a matching name exists it is over-written, if not it is created.
+#'
+#' @param source \code{string}. The path of the directory containg the Excel workbooks to be uploaded.
+#'
+#' @return \code{null}
+#'
+#' @examples
+#'
+#' \dontrun {
+#' upload("path_of_source_directory")
+#' }
+#'
+#' @keywords internal
+#'
+#' @noRd
 
 upload <- function(source) {
 
