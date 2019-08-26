@@ -23,7 +23,7 @@ upload <- function(source) {
 
   for (file in files) {
 
-    file_path <- file.path(source, file_name)
+    file_path <- file.path(source, file)
     worksheets <- readxl::excel_sheets(file_path)
 
     for (worksheet in worksheets) {
