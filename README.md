@@ -16,18 +16,39 @@ Status](https://api.travis-ci.org/thomascrines/sdrUpload.svg?branch=master)](htt
 construction - watch this space for updates** :construction:
 :construction: :construction:
 
-TODO: Add description
+Use sdrUpload to upload Excel spreadsheets from a specified directory to
+a named database, and move the files to an ‘archive’ folder.
 
 ## Installation
 
-You can install the development version of shsannualreport from
-[GitHub](https://github.com/) with:
+Install opendatascot from GitHub with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("thomascrines/sdrUpload")
 ```
 
-## Example
+If the above does not work, you can install from source:
 
-TODO: Add examples as packages develops.
+1.  Go to the sdrUpload
+    [repository](https://github.com/thomascrines/sdrUpload) on GitHub
+2.  Click **Clone or download** then **Download ZIP**
+3.  Save the file locally (e.g. your H drive) and Unzip
+4.  Install with install.packages()
+
+<!-- end list -->
+
+``` r
+install.packages("your/directory/sdrUpload", repos = NULL,
+                 type="source", lib = "your/R/package/library/directory")
+```
+
+## Examples
+
+Write data from Excel sheets contained in a source directory to SDR
+database tables, and move files to an archive folder:
+`sdr_upload("C://example_source", "C://example_archive",
+"database_name", "server_name")`
+
+Delete a table from a specified connection: `sdr_delete_table("table
+name", "database name", "server name")`
