@@ -10,19 +10,21 @@
 #'
 #' @examples
 #'
-#' \dontrun {
+#' \dontrun{
 #' delete_table("table name", "database name", "server name")
 #' }
 #'
 #' @export
 
-delete_table <- function(table, database, server) {
+delete_table <- function(table, database, server){
 
   connection <- sdrUpload:::create_connection(database = database, server = server)
 
-  tryCatch({odbc::dbRemoveTable(conn = connection, name = table)},
-           error = function(cond) {
-             message(paste0("Failed to delete table: ", table, " from database: ", database, " on server: ", server))
-             message(paste0("Original error message: ", cond))
-           })
+  tryCatch({
+    odbc::dbRemoveTable(conn = connection, name = table)
+      }, error = function(cond){
+        message(paste0("Failed to delete table: ", table, " from database: ", database, " on server: ", server))
+        message(paste0("Original error message: ", cond))
+        }
+    )
 }

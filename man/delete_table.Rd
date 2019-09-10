@@ -21,7 +21,7 @@ delete_table(table, database, server)
 }
 \examples{
 
-\dontrun {
+\dontrun{
 delete_table("table name", "database name", "server name")
 }
 

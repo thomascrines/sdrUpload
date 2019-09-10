@@ -11,7 +11,7 @@
 #'
 #' @examples
 #'
-#' \dontrun {
+#' \dontrun{
 #' upload("C://example_source", "C://example_archive", "database_name", "server_name")
 #' }
 #'
