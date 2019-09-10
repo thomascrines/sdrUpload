@@ -33,6 +33,7 @@ sdr_upload <- function(source, archive, database, server) {
                            error = function(cond) {
                              message(paste0("Failed to read sheets from file: ", file_path))
                              message(paste0("Original error message: ", cond))
+                             stop()
                            })
 
     for (worksheet in worksheets) {
@@ -42,6 +43,7 @@ sdr_upload <- function(source, archive, database, server) {
                      error = function(cond) {
                        message(paste0("Failed to read worksheet: ", worksheet, " from file: ", file_path))
                        message(paste0("Original error message: ", cond))
+                       stop()
                      })
 
       database_table_name <- gsub(" ", "_", paste0(tolower(gsub("\\..*", "", file)), "_", tolower(worksheet)))
@@ -52,6 +54,7 @@ sdr_upload <- function(source, archive, database, server) {
                  message(paste0("Failed to write worksheet: ", worksheet, " to database: ", database))
                  message(paste0("The table may already exist in the database."))
                  message(paste0("Original error message: ", cond))
+                 stop()
                })
     }
 
