@@ -1,6 +1,6 @@
 #' Upload Excel worksheets to SDR
 #'
-#' \code{upload} uploads all Excel worksheets in a specified location to a specified database.
+#' \code{sdr_upload} uploads all Excel worksheets in a specified location to a specified database.
 #'
 #' @param source \code{string}. The path of the directory containing Excel files.
 #' @param archive \code{string}. The path of the directory to send processed files to.
@@ -12,14 +12,14 @@
 #' @examples
 #'
 #' \dontrun{
-#' upload("C://example_source", "C://example_archive", "database_name", "server_name")
+#' sdr_upload("C://example_source", "C://example_archive", "database_name", "server_name")
 #' }
 #'
 #' @export
 
-upload <- function(source, archive, database, server) {
+sdr_upload <- function(source, archive, database, server) {
 
-  connection <- sdrUpload:::create_connection(database = database, server = server)
+  connection <- sdrUpload:::sdr_create_connection(database = database, server = server)
 
   files <- list.files(path = source)
 
@@ -55,7 +55,7 @@ upload <- function(source, archive, database, server) {
                })
     }
 
-    sdrUpload:::archive_file(source, archive, file)
+    sdrUpload:::sdr_archive_file(source, archive, file)
   }
 
   odbc::dbDisconnect(connection)

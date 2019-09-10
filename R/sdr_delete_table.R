@@ -1,6 +1,6 @@
 #' Delete database table
 #'
-#' \code{delete_table} opens an ODBC connection and deletes a specified table.
+#' \code{sdr_delete_table} opens an ODBC connection and deletes a specified table.
 #'
 #' @param table \code{string}. The table to be deleted.
 #' @param database \code{string}. The database to delete the table from.
@@ -11,14 +11,14 @@
 #' @examples
 #'
 #' \dontrun{
-#' delete_table("table name", "database name", "server name")
+#' sdr_delete_table("table name", "database name", "server name")
 #' }
 #'
 #' @export
 
-delete_table <- function(table, database, server){
+sdr_delete_table <- function(table, database, server){
 
-  connection <- sdrUpload:::create_connection(database = database, server = server)
+  connection <- sdrUpload:::sdr_create_connection(database = database, server = server)
 
   tryCatch({
     odbc::dbRemoveTable(conn = connection, name = table)
