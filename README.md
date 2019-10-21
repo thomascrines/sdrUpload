@@ -46,9 +46,15 @@ install.packages("your/directory/sdrUpload", repos = NULL,
 ## Examples
 
 Write data from Excel sheets contained in a source directory to SDR
-database tables, and move files to an archive folder:
-`sdr_upload("C://example_source", "C://example_archive",
-"database_name", "server_name")`
+database tables, and move files to an archive folder: `sdr_upload(source
+= "C:\\example_source", archive = "C:\\example_archive", database =
+"DatabaseName", server = "ServerName")`
 
-Delete a table from a specified connection: `sdr_delete_table("table
-name", "database name", "server name")`
+Delete a table from a specified connection: `sdr_delete_table(table =
+"TableName", database = "DatabaseName", server = "ServerName")`
+
+Return a list of tables in a database: `sdr_list_tables(database =
+"DatabaseName", server = "DatabaseServer")`
+
+Return data from a database table: `sdr_list_tables(database =
+"DatabaseName", server = "ServerName", table = "TableName")`
