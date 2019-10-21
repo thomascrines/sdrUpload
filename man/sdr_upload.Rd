@@ -24,7 +24,7 @@ sdr_upload(source, archive, database, server)
 \examples{
 
 \dontrun{
-sdr_upload("C://example_source", "C://example_archive", "database_name", "server_name")
+sdr_upload(source = "C:\\\\example_source", archive = "C:\\\\example_archive", database = "DatabaseName", server = "ServerName")
 }
 
 }

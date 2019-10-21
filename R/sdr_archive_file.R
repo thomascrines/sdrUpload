@@ -4,13 +4,14 @@
 #'
 #' @param source \code{string}. The path of the directory containing a file.
 #' @param archive \code{string}. The path of the directory to send the file to.
+#' @param file \code{string}. The name of the file to be archived.
 #'
 #' @return \code{null}
 #'
 #' @examples
 #'
 #' \dontrun {
-#' sdr_archive_file("path_of_source_directory", "path_of_archive_directory")
+#' sdr_archive_file("C:\\Users\\archive", "C:\\Users\\archive")
 #' }
 #'
 #' @keywords internal
@@ -22,10 +23,14 @@ sdr_archive_file <- function(source, archive, file) {
   source_file_path <- paste0(source, "\\", file)
   archive_file_path <- paste0(archive, "\\", file)
 
-  tryCatch({file.rename(from = source_file_path, to = archive_file_path)},
-           error = function(cond) {
-             message(paste0("Failed to move file from: ", source_file_path, " to: ", archive_file_path))
-             message(paste0("Original error message: ", cond))
-           })
+  tryCatch({
+
+    file.rename(from = source_file_path, to = archive_file_path)
+
+  }, error = function(cond) {
+
+    stop(paste0("Failed to move file from: '", source_file_path, "' to: '", archive_file_path, "'\nOriginal error message: '", cond, "'"))
+
+  })
 }
 
