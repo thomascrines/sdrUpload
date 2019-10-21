@@ -22,7 +22,7 @@ sdr_delete_table(table, database, server)
 \examples{
 
 \dontrun{
-sdr_delete_table("table name", "database name", "server name")
+sdr_delete_table(table = "TableName", database = "DatabaseName", server = "ServerName")
 }
 
 }

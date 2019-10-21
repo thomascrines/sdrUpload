@@ -18,9 +18,18 @@
 #' @noRd
 
 sdr_create_connection <- function(database, server) {
-  odbc::dbConnect(odbc::odbc(),
-                  Driver="SQL Server",
-                  Trusted_Connection="True",
-                  DATABASE=database,
-                  SERVER=server)
-  }
+
+  tryCatch({
+
+    odbc::dbConnect(odbc::odbc(),
+                    Driver="SQL Server",
+                    Trusted_Connection="True",
+                    DATABASE=database,
+                    SERVER=server)},
+
+    error = function(cond) {
+
+      stop(paste0("Failed to create connection to database: '", database, "' on server: '", server, "'\nOriginal error message: '", cond, "'"))
+
+    })
+}
